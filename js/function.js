@@ -18,5 +18,5 @@ const isPolindrome = (string = '') => {
   return string === result;
 };
 
-console.log(isPolindrome('aaa'));
+console.log(isPolindrome('abca'));
 
