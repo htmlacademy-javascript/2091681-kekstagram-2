@@ -2,7 +2,7 @@ function checkLength(string = '', maxSymbol = 1) {
   return (string.length <= maxSymbol);
 }
 
-console.log(checkLength('Javascript', 5));
+console.log(checkLength('Javascript', 10));
 
 const isPolindrome = (string = '') => {
 
@@ -18,4 +18,5 @@ const isPolindrome = (string = '') => {
   return string === result;
 };
 
-console.log(isPolindrome('aasaa'));
+console.log(isPolindrome('aaa'));
+
