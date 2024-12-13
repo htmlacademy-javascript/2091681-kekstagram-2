@@ -29,7 +29,7 @@ checkPalindrome('abca');
 
 const getNumber = function (string) {
 
-  const foundNamber = string.replaceAll(/\D/g, '').replace(/^0+/, '');
+  const foundNamber = string.replaceAll(/\D/g, '');
 
   return parseInt(foundNamber, 10);
 };
@@ -43,7 +43,7 @@ const transformNumber = function (number) {
 
   const string = String(number);
 
-  const foundNamber = string.replaceAll(/\D/g, '').replace(/^0+/, '');
+  const foundNamber = string.replaceAll(/\D/g, '');
 
   return parseInt(foundNamber, 10);
 
