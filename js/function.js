@@ -49,6 +49,6 @@ const transformNumber = function (number) {
 
 };
 
-transformNumber(0.120);
+transformNumber(0.12);
 
 
