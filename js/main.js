@@ -1,8 +1,8 @@
 // Описание случайного комментария
 
-const commentId = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
+const commentId = Array.from({ length: 31 }, (value, index) => index);
 
-const commentAvatar = [1, 2, 3, 4, 5, 6];
+const commentAvatar = Array.from({ length: 6 }, (value, index) => ++index);
 
 const commentMessage = [
   'Всё отлично!',
@@ -26,7 +26,6 @@ const commentName = [
   'Сергей',
 ];
 
-
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
@@ -49,7 +48,7 @@ comments();
 
 // Описание случайной фотографии
 
-const photoId = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
+const photoId = Array.from({ length: 25 }, (value, index) => value = ++index);
 
 const photoDescription = ['Пляж', 'Указатель на пляж', 'Берег', 'Девушка в купальнике', 'Две миски супа', 'Автомобиль',
   'Клубника на тарелке', 'Морс', 'Самолет над пляжем', 'Обувница', 'Дорожка на пляж', 'Серый Ауди', 'Овощная терелка',
@@ -69,4 +68,6 @@ const photos = () => {
   };
 };
 
-console.log(photos());
+photos();
+
+
