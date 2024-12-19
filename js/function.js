@@ -1,13 +1,17 @@
-function checkLength(string = '', maxSymbol = 1) {
+// Проверяет длину строки
+
+function checkLength(string, maxSymbol) {
   return (string.length <= maxSymbol);
 }
 
-console.log(checkLength('Javascript', 10));
+checkLength('Javascript', 10);
 
-const isPolindrome = (string = '') => {
 
-  string = string.replaceAll(' ', '');
-  string = string.toLocaleLowerCase();
+// Проверяет, является ли строка палиндромом
+
+const checkPalindrome = (string) => {
+
+  string = string.replaceAll(' ', '').toLowerCase();
 
   let result = '';
 
@@ -18,5 +22,32 @@ const isPolindrome = (string = '') => {
   return string === result;
 };
 
-console.log(isPolindrome('aaa'));
+checkPalindrome('abca');
+
+
+// Извлекает числа из строки
+
+const getNumber = function (string) {
+
+  const foundNamber = string.replaceAll(/\D/g, '');
+
+  return parseInt(foundNamber, 10);
+};
+
+getNumber ('агент 007');
+
+
+// Преобразует число в целое положительное
+
+const transformNumber = function (number) {
+
+  const string = String(number);
+
+  const foundNamber = string.replaceAll(/\D/g, '');
+
+  return parseInt(foundNamber, 10);
+
+};
+
+transformNumber(0.120);
 
