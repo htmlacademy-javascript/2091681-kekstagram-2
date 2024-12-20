@@ -1,4 +1,4 @@
-// Описание случайного комментария
+// Описание одного комментария
 
 const commentId = Array.from({ length: 31 }, (value, index) => index);
 
@@ -26,11 +26,25 @@ const commentName = [
   'Сергей',
 ];
 
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
 
-const comments = () => {
+// Функция взята из приммера с созвона, пока генерируется случайное число
+// const idGenerator = () => {
+//   let currentId = 0;
+//   return () => ++currentId;
+// };
+
+// const getId = idGenerator();
+// // console.log(typeof getId);
+// // console.log(getId());
+
+const getRandomInt = (a, b) => {
+  const lower = Math.ceil(Math.min(a, b));
+  const upper = Math.floor(Math.max(a, b));
+  const result = Math.random() * (upper - lower + 1) + lower;
+  return Math.floor(result);
+};
+
+const comment = () => {
   const randomIndexCommentId = getRandomInt(0, commentId.length - 1);
   const randomIndexAvatar = getRandomInt(0, commentAvatar.length - 1);
   const randomIndexMessage = getRandomInt(0, commentMessage.length - 1);
@@ -44,9 +58,26 @@ const comments = () => {
   };
 };
 
-comments();
+comment();
 
-// Описание случайной фотографии
+
+// Описание массива комментариев
+
+// let commentArray = [];
+// commentArray.push(comment());
+// commentArray.push(comment());
+// commentArray.push(comment());
+// commentArray.push(comment());
+// commentArray.push(comment());
+
+// console.log(commentArray);
+
+// const arrayLength = getRandomInt(0, commentId.length); // Длина массива комментариев
+
+// Не доделано!!! Надо добавить цикл от 0 до arrayLength
+
+
+// Описание фотографии
 
 const photoId = Array.from({ length: 25 }, (value, index) => value = ++index);
 
@@ -64,10 +95,10 @@ const photos = () => {
     url: 'photos/' + photoId[randomIndex] + '.jpg',
     description: photoDescription[randomIndex],
     likes: getRandomInt(15, 200),
-    comments: comments(),
+    comments: [comment(), comment(), comment()],
   };
 };
 
-photos();
+// console.log(photos());
 
 
