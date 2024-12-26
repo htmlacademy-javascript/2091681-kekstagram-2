@@ -1,10 +1,15 @@
-// Описание одного комментария
+const PHOTO_COUNT = 25;
 
-const commentId = Array.from({ length: 31 }, (value, index) => index);
+const MIN_LIKES = 15;
+const MAX_LIKES = 200;
 
-const commentAvatar = Array.from({ length: 6 }, (value, index) => ++index);
+const MIN_AVATAR_ID = 1;
+const MAX_AVATAR_ID = 6;
 
-const commentMessage = [
+const MIN_COMMENT_ID = 0;
+const MAX_COMMENT_ID = 30;
+
+const USER_COMMENTS = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
   'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
@@ -13,7 +18,7 @@ const commentMessage = [
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'
 ];
 
-const commentName = [
+const USER_NAMES = [
   'Анна',
   'Михаил',
   'Елизавета',
@@ -26,16 +31,10 @@ const commentName = [
   'Сергей',
 ];
 
-
-// Функция взята из приммера с созвона, пока генерируется случайное число
-// const idGenerator = () => {
-//   let currentId = 0;
-//   return () => ++currentId;
-// };
-
-// const getId = idGenerator();
-// // console.log(typeof getId);
-// // console.log(getId());
+const PHOTO_DESCRIPTION = ['Пляж', 'Указатель на пляж', 'Берег', 'Девушка в купальнике', 'Две миски супа', 'Автомобиль',
+  'Клубника на тарелке', 'Морс', 'Самолет над пляжем', 'Обувница', 'Дорожка на пляж', 'Серый Ауди', 'Овощная терелка',
+  'Сушикот', 'Сапоги робота', 'Самолет над облаками', 'Хор', 'Ретро автомобиль', 'Тапочки с фонариком',
+  'Пальмы у отеля', 'Рагу', 'Закат', 'Краб', 'Концерт', 'Land Rover'];
 
 const getRandomInt = (a, b) => {
   const lower = Math.ceil(Math.min(a, b));
@@ -44,61 +43,37 @@ const getRandomInt = (a, b) => {
   return Math.floor(result);
 };
 
-const comment = () => {
-  const randomIndexCommentId = getRandomInt(0, commentId.length - 1);
-  const randomIndexAvatar = getRandomInt(0, commentAvatar.length - 1);
-  const randomIndexMessage = getRandomInt(0, commentMessage.length - 1);
-  const randomIndexName = getRandomInt(0, commentName.length - 1);
-
-  return {
-    id: commentId[randomIndexCommentId],
-    avatar: 'img/avatar-' + commentAvatar[randomIndexAvatar] + '.svg',
-    message: commentMessage[randomIndexMessage],
-    name: commentName[randomIndexName],
-  };
+const getId = () => {
+  let currentId = 0;
+  return () => ++currentId;
 };
 
-comment();
+const getCommentId = getId();
 
+const getPhotoId = getId();
 
-// Описание массива комментариев
-
-// let commentArray = [];
-// commentArray.push(comment());
-// commentArray.push(comment());
-// commentArray.push(comment());
-// commentArray.push(comment());
-// commentArray.push(comment());
-
-// console.log(commentArray);
-
-// const arrayLength = getRandomInt(0, commentId.length); // Длина массива комментариев
-
-// Не доделано!!! Надо добавить цикл от 0 до arrayLength
-
-
-// Описание фотографии
-
-const photoId = Array.from({ length: 25 }, (value, index) => value = ++index);
-
-const photoDescription = ['Пляж', 'Указатель на пляж', 'Берег', 'Девушка в купальнике', 'Две миски супа', 'Автомобиль',
-  'Клубника на тарелке', 'Морс', 'Самолет над пляжем', 'Обувница', 'Дорожка на пляж', 'Серый Ауди', 'Овощная терелка',
-  'Сушикот', 'Сапоги робота', 'Самолет над облаками', 'Хор', 'Ретро автомобиль', 'Тапочки с фонариком',
-  'Пальмы у отеля', 'Рагу', 'Закат', 'Краб', 'Концерт', 'Land Rover'];
-
-
-const photos = () => {
-  const randomIndex = getRandomInt(0, photoId.length - 1);
-
-  return {
-    id: photoId[randomIndex],
-    url: 'photos/' + photoId[randomIndex] + '.jpg',
-    description: photoDescription[randomIndex],
-    likes: getRandomInt(15, 200),
-    comments: [comment(), comment(), comment()],
+const getComments = () => {
+  const comment = {
+    id: getCommentId(),
+    avatar: `img/avatar-${getRandomInt(MIN_AVATAR_ID, MAX_AVATAR_ID)}`,
+    message: USER_COMMENTS[getRandomInt(0, USER_COMMENTS.length - 1)],
+    name: USER_NAMES[getRandomInt(0, USER_NAMES.length - 1)]
   };
+  return comment;
 };
 
-// console.log(photos());
+const getPhotoDescription = () => {
+  const id = getPhotoId();
+
+  return {
+    id,
+    url:`photo/${id}.jpg`,
+    description: PHOTO_DESCRIPTION[id - 1],
+    likes:getRandomInt(MIN_LIKES, MAX_LIKES),
+    comments: Array.from({length:getRandomInt(MIN_COMMENT_ID, MAX_COMMENT_ID)}, getComments)
+  };
+};
+const getPhotos = () => Array.from({length:PHOTO_COUNT}, getPhotoDescription);
 
 
+getPhotos();
