@@ -49,7 +49,9 @@ const transformNumber = function (number) {
 
 };
 
+
 transformNumber(0.12);
+transformNumber(0.120);
 
 
 // Проверяет, что встреча не выходит за рамки рабочего дня
