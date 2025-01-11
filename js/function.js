@@ -51,4 +51,3 @@ const transformNumber = function (number) {
 
 transformNumber(0.12);
 
-
