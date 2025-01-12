@@ -57,20 +57,11 @@ transformNumber(0.120);
 // Проверяет, что встреча не выходит за рамки рабочего дня
 
 const getDateTime = (time) => {
-
-  const date = new Date();
-
-  const array = time.replaceAll(' ', '').split(':');
-
-  date.setHours(array[0], 10);
-  date.setMinutes(array[1], 10);
-  date.setSeconds(0);
-  date.setMilliseconds(0);
-
-  return date;
+  const [hours, minutes] = time.split(':');
+  return Number(hours) * 60 + Number(minutes);
 };
 
-// console.log(getDateTime('15:20:30'));
+// console.log(getDateTime('20:20'));
 
 const checkMeetingTime = (dayStart, dayEnd, meetingStart, meetingDuration) => {
   if (meetingDuration <= 0) {
@@ -85,8 +76,7 @@ const checkMeetingTime = (dayStart, dayEnd, meetingStart, meetingDuration) => {
   }
 
   const meetTimeBegin = getDateTime(meetingStart);
-  const meetTimeEnd = new Date(meetTimeBegin);
-  meetTimeEnd.setMinutes(meetTimeEnd.getMinutes() + meetingDuration);
+  const meetTimeEnd = meetTimeBegin + meetingDuration;
 
   // console.log(workTimeBegin);
   // console.log(workTimeEnd);
