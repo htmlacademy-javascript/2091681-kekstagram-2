@@ -63,7 +63,7 @@ const getDateTime = (time) => {
   return hours * VALUE_IN_MINUTES + minutes;
 };
 
-console.log(getDateTime('15:20'));
+// console.log(getDateTime('15:20'));
 
 const checkMeetingTime = (dayStart, dayEnd, meetingStart, meetingDuration) => {
   if (meetingDuration <= 0) {
