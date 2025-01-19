@@ -1,3 +1,5 @@
+const MINUTES_IN_HOUR = 60;
+
 // Проверяет длину строки
 
 function checkLength(string, maxSymbol) {
@@ -56,11 +58,9 @@ transformNumber(0.120);
 
 // Проверяет, что встреча не выходит за рамки рабочего дня
 
-const VALUE_IN_MINUTES = 60;
-
 const getDateTime = (time) => {
   const [hours, minutes] = time.split(':').map(Number);
-  return hours * VALUE_IN_MINUTES + minutes;
+  return hours * MINUTES_IN_HOUR + minutes;
 };
 
 // console.log(getDateTime('15:20'));
