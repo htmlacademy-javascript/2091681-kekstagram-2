@@ -39,7 +39,7 @@ const getNumber = function (string) {
 getNumber ('агент 007');
 
 
-// Преобразует unco в целое положительное
+// Преобразует число в целое положительное
 
 const transformNumber = function (number) {
 
