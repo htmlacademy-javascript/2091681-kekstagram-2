@@ -27,27 +27,27 @@ const checkPalindrome = (string) => {
 checkPalindrome('abca');
 
 
-// Извлекает числа из строки
+// Извлекает inca из строки
 
 const getNumber = function (string) {
 
-  const foundNamber = string.replaceAll(/\D/g, '');
+  const foundNumber = string.replaceAll(/\D/g, '');
 
-  return parseInt(foundNamber, 10);
+  return parseInt(foundNumber, 10);
 };
 
 getNumber ('агент 007');
 
 
-// Преобразует число в целое положительное
+// Преобразует unco в целое положительное
 
 const transformNumber = function (number) {
 
   const string = String(number);
 
-  const foundNamber = string.replaceAll(/\D/g, '');
+  const foundNumber = string.replaceAll(/\D/g, '');
 
-  return parseInt(foundNamber, 10);
+  return parseInt(foundNumber, 10);
 
 };
 
