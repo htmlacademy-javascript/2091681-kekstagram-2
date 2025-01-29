@@ -54,7 +54,7 @@ const getComment = () => ({
 
 getComment();
 
-const getPhotoDescription = () => {
+const getPostDescription = () => {
   const id = getPhotoId();
 
   return {
@@ -66,6 +66,6 @@ const getPhotoDescription = () => {
   };
 };
 
-const getPhotos = () => Array.from({length:PHOTO_COUNT}, getPhotoDescription);
+const getPosts = () => Array.from({length:PHOTO_COUNT}, getPostDescription);
 
-export {getPhotos};
+export {getPosts};
