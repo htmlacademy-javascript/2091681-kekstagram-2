@@ -1,3 +1,3 @@
-import './draw-miniatures.js';
+import {postElement} from'./draw-posts.js';
 
-
+postElement();
