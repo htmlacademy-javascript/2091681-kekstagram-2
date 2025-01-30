@@ -5,26 +5,25 @@ const postElement = document.querySelector('.pictures');
 const postTemplate = document.querySelector('#picture').content.querySelector('.picture');
 const postFragment = document.createDocumentFragment();
 
-posts.forEach(({url, description, likes, comments}) => {
-  const createPost = () => {
-    const post = postTemplate.cloneNode(true);
 
-    const postImage = post.querySelector('.picture__img');
-    postImage.src = url;
-    postImage.alt = description;
+const createPost = ({url, description, likes, comments}) => {
 
-    post.querySelector('.picture__likes').textContent = likes;
+  const post = postTemplate.cloneNode(true);
 
-    post.querySelector('.picture__comments').textContent = comments.length;
+  const postImage = post.querySelector('.picture__img');
+  postImage.src = url;
+  postImage.alt = description;
 
-    postFragment.append(post);
-  };
+  post.querySelector('.picture__likes').textContent = likes;
 
-  createPost();
-});
+  post.querySelector('.picture__comments').textContent = comments.length;
 
+  postFragment.append(post);
+};
 
-postElement.append(postFragment);
+posts.forEach(createPost);
 
-export {postElement};
+const allPost = () => postElement.append(postFragment);
+
+export {allPost};
 
