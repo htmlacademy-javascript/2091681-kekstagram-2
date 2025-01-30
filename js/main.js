@@ -1,3 +1,3 @@
-import {postElement} from'./draw-posts.js';
+import {allPost} from'./draw-posts.js';
 
-postElement();
+allPost();
