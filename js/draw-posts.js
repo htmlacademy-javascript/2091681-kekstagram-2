@@ -23,7 +23,7 @@ const createPost = ({url, description, likes, comments}) => {
 
 posts.forEach(createPost);
 
-const allPost = () => postElement.append(postFragment);
+const allPosts = () => postElement.append(postFragment);
 
-export {allPost};
+export {allPosts};
 
