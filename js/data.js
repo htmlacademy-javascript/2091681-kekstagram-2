@@ -54,18 +54,18 @@ const getComment = () => ({
 
 getComment();
 
-const getPhotoDescription = () => {
+const getPostDescription = () => {
   const id = getPhotoId();
 
   return {
     id,
-    url:`photo/${id}.jpg`,
+    url:`photos/${id}.jpg`,
     description: PHOTO_DESCRIPTION[id - 1],
     likes:getRandomInt(MIN_LIKES, MAX_LIKES),
     comments: Array.from({length:getRandomInt(MIN_COMMENT_ID, MAX_COMMENT_ID)}, getComment)
   };
 };
 
-const getPhotos = () => Array.from({length:PHOTO_COUNT}, getPhotoDescription);
+const getPosts = () => Array.from({length:PHOTO_COUNT}, getPostDescription);
 
-export {getPhotos};
+export {getPosts};

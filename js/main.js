@@ -1,3 +1,3 @@
-import {getPhotos} from './data.js';
+import {renderPosts} from'./draw-posts.js';
 
-getPhotos();
+renderPosts();
