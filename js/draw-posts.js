@@ -3,8 +3,6 @@ import {getPosts} from './data.js';
 const posts = getPosts();
 const postElement = document.querySelector('.pictures');
 const postTemplate = document.querySelector('#picture').content.querySelector('.picture');
-const postFragment = document.createDocumentFragment();
-
 
 const createPost = ({url, description, likes, comments}) => {
 
@@ -18,11 +16,12 @@ const createPost = ({url, description, likes, comments}) => {
 
   post.querySelector('.picture__comments').textContent = comments.length;
 
-  postFragment.append(post);
+  return post;
 };
 
 const renderPosts = () => {
-  posts.forEach(createPost);
+  const postFragment = document.createDocumentFragment();
+  posts.forEach((el) => postFragment.append(createPost(el)));
   postElement.append(postFragment);
 };
 
