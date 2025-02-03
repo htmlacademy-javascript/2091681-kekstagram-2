@@ -8,6 +8,7 @@ const createPost = ({url, description, likes, comments}) => {
 
   const post = postTemplate.cloneNode(true);
 
+
   const postImage = post.querySelector('.picture__img');
   postImage.src = url;
   postImage.alt = description;
